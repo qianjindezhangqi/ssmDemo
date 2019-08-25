@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+ <mapper namespace="ssmDemo.user.dao.UserDao">
+	<select id="queryUser" resultType="ssmDemo.user.entity.User" parameterType="ssmDemo.user.entity.User">
+		<!-- 具体的sql -->
+		SELECT
+			id,
+			name,
+			sex
+		FROM
+			t_user u
+		WHERE 1=1
+        <if test="id != null">
+            and id =#{id}
+        </if>
+	</select>
+</mapper>
